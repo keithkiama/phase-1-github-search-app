@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                             <button class='repo-button' style='margin-bottom: 25px'> Repositories </button>
                             </div>
                                 <img src=${user.avatar_url} />
-                            </div>`
+                        </div>`
                     
                     document.querySelector('#user-list').appendChild(userCard)   
                 
