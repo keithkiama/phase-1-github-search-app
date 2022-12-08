@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', () =>{
                 //console.log(search)
                 handleSearch(search)//Callback function
 
-        const handleUrl = ('https://api.github.com/search/users?q=')
-
         function handleSearch() {
-            fetch(handleUrl ,{
+            fetch('https://api.github.com/search/users?q=' + search , {
                 method: 'GET',
                 header:{
                 'Content-Type': 'application/json',
