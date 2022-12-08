@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             fetch('https://api.github.com/search/users?q=' + search , {
                 method: 'GET',
                 header:{
-                'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                     Accept: 'application/vnd.github.v3+json'
                 },
                 body: JSON.stringify()
@@ -20,23 +20,24 @@ document.addEventListener('DOMContentLoaded', () =>{
 
             .then(response => response.json())
 
-            .then(output => {console.log(output)
+            .then(data => {console.log(data)
 
                 document.querySelector('#user-list').innerHTML = ''
                 document.querySelector('#repos-list').innerHTML =''
         
-                output.items.forEach(user => {
+                data.items.forEach(user => {
                     console.log(user)
-                    let userCard = document.createElement('li')//creates a list in the ul tag
+                  let userCard = document.createElement('li')//creates a list in the ul tag
                     userCard.className = 'all-users'
                     userCard.innerHTML = `
                         <div class='content'>
                             <h3> User: ${user.login}</h3>
+                            <img src=${user.avatar_url}/>
                             <p> URL: ${user.html_url}</p>
                             <div class ='repos'>
-                            <button class='repo-button' style='margin-bottom: 25px'> Repositories </button>
+                                <button class='repo-button' style='margin-bottom: 25px'> Repositories </button>
                             </div>
-                                <img src=${user.avatar_url} />
+                                
                         </div>`
                     
                     document.querySelector('#user-list').appendChild(userCard)   
